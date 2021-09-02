@@ -13,9 +13,11 @@ const initialState: IAuthState = {
 const AuthContext = createContext<Partial<IAuthState>>({});
 
 const AuthProvider: React.FC = ({ children }) => {
-  const [state, dispatch] = useReducer(AuthReducer, initialState);
+    const [state, dispatch] = useReducer(AuthReducer, initialState);
+    
   const login = ({ userName, roomName }: IUser) =>
-    dispatch({ type: AuthTypes.login, payload: { userName, roomName } });
+      dispatch({ type: AuthTypes.login, payload: { userName, roomName } });
+    
   const logout = () => dispatch({ type: AuthTypes.logout });
   return (
     <AuthContext.Provider value={{ ...state, login, logout }}>

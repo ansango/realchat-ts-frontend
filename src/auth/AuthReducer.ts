@@ -1,15 +1,15 @@
-
-import { IAuthState } from "./AuthModels";
 import AuthTypes from "./AuthTypes";
-
-
-
 interface Action {
   type: string;
   payload?: any;
 }
 
-const AuthReducer = (state: IAuthState, { type, payload }: Action) => {
+interface AuthState {
+  user: any;
+  logged: boolean;
+}
+
+const AuthReducer = (state: AuthState, { type, payload }: Action) => {
   const { login, logout } = AuthTypes;
   switch (type) {
     case login:

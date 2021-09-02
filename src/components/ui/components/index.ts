@@ -1,5 +1,6 @@
+import Chat from "./Chat";
 import Footer from "./Footer";
 import Login from "./Login";
 import Nav from "./Nav";
 
-export { Nav, Footer, Login };
+export { Nav, Footer, Login, Chat };

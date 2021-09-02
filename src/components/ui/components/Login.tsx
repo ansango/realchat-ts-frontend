@@ -1,5 +1,4 @@
 import { useHistory } from "react-router-dom";
-import { IUser } from "../../../auth/AuthModels";
 import { useAuth } from "../../../auth/AuthProvider";
 import useForm from "../../../hooks/useForm";
 import { BTN_TYPE, ButtonBase } from "../buttons/ButtonBase";
