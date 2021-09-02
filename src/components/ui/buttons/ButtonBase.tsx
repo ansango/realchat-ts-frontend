@@ -1,19 +1,27 @@
+export enum BTN_TYPES {
+  DEFAULT = "default",
+  DANGER = "danger",
+  WARNING = "warning",
+  SUCCESS = "success",
+  BLANK = "blank",
+}
+
 type ButtonProps = {
   children: any;
   onClick: () => void;
-  kind?: string;
+  kind?: BTN_TYPES;
 };
 
 export const ButtonBase = ({
   children,
   onClick,
-  kind = "default",
+  kind = BTN_TYPES.DEFAULT,
 }: ButtonProps) => {
-  const isDefault = kind === "default";
-  const isDanger = kind === "danger";
-  const isWarning = kind === "warning";
-  const isSuccess = kind === "success";
-  const isBlank = kind === "blank";
+  const isDefault = kind === BTN_TYPES.DEFAULT;
+  const isDanger = kind === BTN_TYPES.DANGER;
+  const isWarning = kind === BTN_TYPES.WARNING;
+  const isSuccess = kind === BTN_TYPES.SUCCESS;
+  const isBlank = kind === BTN_TYPES.BLANK;
   return (
     <>
       {isDefault && <Default children={children} onClick={onClick} />}
