@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
 import useForm from "../../../hooks/useForm";
 import { BTN_TYPE, ButtonBase } from "../buttons/ButtonBase";
-import { FormInput, FormLabel } from "../forms";
+import { FormLabel, FormInput } from "../forms";
 
 export const Login = () => {
   const router = useHistory();
@@ -24,13 +24,21 @@ export const Login = () => {
   };
   return (
     <form className="grid grid-cols-1 gap-2 lg:py-20" onSubmit={handleSubmit}>
-      <input
+      <FormLabel name="User name" />
+      <FormInput
         type="text"
-        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-        placeholder="Type your username"
+        placeholder="Enter your username"
         name="userName"
         value={userName}
-        onChange={handleInputChange}
+        change={handleInputChange}
+      />
+      <FormLabel name="Room name" />
+      <FormInput
+        type="text"
+        placeholder="Enter a Room's key"
+        name="roomName"
+        value={roomName}
+        change={handleInputChange}
       />
       <ButtonBase type={BTN_TYPE.SUBMIT}>Submit</ButtonBase>
     </form>
