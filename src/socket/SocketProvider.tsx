@@ -1,7 +1,8 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { ISocketState } from "./SocketModels";
 import SocketReducer from "./SocketReducer";
-import SocketTypes from "./SocketTypes";
+
+import { io } from "socket.io-client";
 
 const initialState: ISocketState = {
   socket: null,
@@ -15,9 +16,7 @@ const SocketContext = createContext<Partial<ISocketState>>({});
 const SocketProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(SocketReducer, initialState);
 
-  const connect = () => dispatch({ type: SocketTypes.connect });
-
-  useEffect(() => connect(), [dispatch]);
+  const connect = () => {};
 
   return (
     <SocketContext.Provider value={{ ...state, connect }}>
