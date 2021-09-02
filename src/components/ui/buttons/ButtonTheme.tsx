@@ -1,11 +1,22 @@
-
+import useTheme from "../../../hooks/useTheme";
+import { MoonIcon, SunIcon } from "../icons";
+import { ButtonBase } from "./ButtonBase";
 
 const ButtonTheme = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  const [colorTheme, setTheme] = useTheme();
 
-export default ButtonTheme
+  const onTheme = () => {
+    setTheme(colorTheme);
+  };
+  return (
+    <ButtonBase onClick={onTheme} kind={"blank"}>
+      {colorTheme === "dark" ? (
+        <MoonIcon size={20} className="text-blue-900" />
+      ) : (
+        <SunIcon size={20} className="text-blue-200" />
+      )}
+    </ButtonBase>
+  );
+};
+
+export default ButtonTheme;
