@@ -1,10 +1,13 @@
 import { useHistory } from "react-router-dom";
+import { IUser } from "../../../auth/AuthModels";
+import { useAuth } from "../../../auth/AuthProvider";
 import useForm from "../../../hooks/useForm";
 import { BTN_TYPE, ButtonBase } from "../buttons/ButtonBase";
 import { FormLabel, FormInput } from "../forms";
 
 export const Login = () => {
   const router = useHistory();
+  const { login } = useAuth();
   const [formValues, handleInputChange] = useForm({
     userName: "",
     roomName: "",
@@ -20,6 +23,7 @@ export const Login = () => {
       return;
     }
 
+    login({ userName, roomName });
     router.push(`/chat/${roomName}/${userName}`);
   };
   return (
